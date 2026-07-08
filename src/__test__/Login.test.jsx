@@ -21,4 +21,15 @@ describe('Login', () => {
     expect(usernameInput.value).toBe('testuser');
     expect(passwordInput.value).toBe('testpass');
   });
+
+  it('submits the form with the correct values', () => {
+    const handleSubmit = jest.fn();
+    render(<Login onSubmit={handleSubmit} />);
+
+    fireEvent.change(screen.getByLabelText(/username/i), { target: { value: 'testuser' } });
+    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'testpass' } });
+    fireEvent.click(screen.getByRole('button', { name: /log in/i }));
+
+    expect(handleSubmit).toHaveBeenCalledWith({ username: 'testuser', password: 'testpass' });
+  });
 });
