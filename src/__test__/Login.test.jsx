@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Login from '../components/Login/Login.jsx';
 
 describe('Login', () => {
-  it('renders username, password fields and submit button', () => {
+  it('renders username, password fields, and submit button', () => {
     render(<Login />);
     expect(screen.getByLabelText(/username/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('Login', () => {
     expect(passwordInput.value).toBe('testpass');
   });
 
-  it('submits the form with the correct values', () => {
+  it('submits the form with correct values', () => {
     const handleSubmit = jest.fn();
     render(<Login onSubmit={handleSubmit} />);
 
@@ -31,5 +31,18 @@ describe('Login', () => {
     fireEvent.click(screen.getByRole('button', { name: /log in/i }));
 
     expect(handleSubmit).toHaveBeenCalledWith({ username: 'testuser', password: 'testpass' });
+  });
+
+  // New tests for additional changes
+  it('renders the updated heading and styles', () => {
+    render(<Login />);
+    expect(screen.getByRole('heading', { name: /welcome back/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /log in/i })).toHaveClass('py-3');
+  });
+
+  it('has the correct CSS classes for inputs', () => {
+    render(<Login />);
+    expect(screen.getByLabelText(/username/i)).toHaveClass('p-3');
+    expect(screen.getByLabelText(/password/i)).toHaveClass('p-3');
   });
 });
