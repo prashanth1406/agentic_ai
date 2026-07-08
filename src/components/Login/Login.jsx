@@ -9,9 +9,9 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-center mb-4">Login</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
+        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Welcome Back</h1>
         <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
           <input
@@ -19,7 +19,7 @@ function Login() {
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            className="mt-1 block w-full p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50"
           />
         </div>
         <div className="mb-4">
@@ -29,10 +29,10 @@ function Login() {
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            className="mt-1 block w-full p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50"
           />
         </div>
-        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Log In</button>
+        <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
         <a href="#" className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
       </form>
     </div>
