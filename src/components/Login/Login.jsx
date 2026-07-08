@@ -28,6 +28,7 @@ function Login() {
         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
       />
       <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Log In</button>
+      <a href="#" className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
     </form>
   );
 }
