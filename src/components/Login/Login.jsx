@@ -8,6 +8,12 @@ function Login() {
     event.preventDefault();
   };
 
+  const handleForgotPassword = () => {
+    // Logic to handle the password reset UI will go here
+    // For now, we will log the action
+    console.log('Forgot password clicked');
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
@@ -33,7 +39,7 @@ function Login() {
           />
         </div>
         <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
-        <a href="#" className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
+        <a href="#" onClick={handleForgotPassword} className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
       </form>
     </div>
   );
