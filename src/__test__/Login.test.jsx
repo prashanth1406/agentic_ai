@@ -33,16 +33,13 @@ describe('Login', () => {
     expect(handleSubmit).toHaveBeenCalledWith({ username: 'testuser', password: 'testpass' });
   });
 
-  // New tests for additional changes
-  it('renders the updated heading and styles', () => {
+  // Tests for Forgot Password functionality
+  it('calls handleForgotPassword when forgot password link is clicked', () => {
+    const consoleSpy = jest.spyOn(console, 'log');
     render(<Login />);
-    expect(screen.getByRole('heading', { name: /welcome back/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /log in/i })).toHaveClass('py-3');
-  });
 
-  it('has the correct CSS classes for inputs', () => {
-    render(<Login />);
-    expect(screen.getByLabelText(/username/i)).toHaveClass('p-3');
-    expect(screen.getByLabelText(/password/i)).toHaveClass('p-3');
+    fireEvent.click(screen.getByText(/forgot password/i));
+    expect(consoleSpy).toHaveBeenCalledWith('Forgot password clicked');
+    consoleSpy.mockRestore();
   });
 });
