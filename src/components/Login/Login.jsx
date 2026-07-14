@@ -3,6 +3,7 @@ import { useState } from 'react';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [companyName, setCompanyName] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +19,16 @@ function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Welcome Back</h1>
+        <div className="mb-4">
+          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name</label>
+          <input
+            id="companyName"
+            type="text"
+            value={companyName}
+            onChange={(event) => setCompanyName(event.target.value)}
+            className="mt-1 block w-full p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50"
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
           <input
