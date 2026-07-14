@@ -29,16 +29,6 @@ function Login() {
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Welcome Back</h1>
         <div className="mb-4">
-          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name</label>
-          <input
-            id="companyName"
-            type="text"
-            value={companyName}
-            onChange={(event) => setCompanyName(event.target.value)}
-            className="mt-1 block w-full p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50"
-          />
-        </div>
-        <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
           <input
             id="username"
@@ -60,12 +50,13 @@ function Login() {
         </div>
         <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
         <a href="#" onClick={handleForgotPassword} className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
-      </form>
-      <GoogleLogin
+          <GoogleLogin
         onSuccess={handleLoginSuccess}
         onError={handleLoginFailure}
         className="mt-4"
       />
+      </form>
+  
     </div>
   );
 }
