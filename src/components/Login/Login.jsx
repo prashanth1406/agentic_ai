@@ -1,9 +1,18 @@
 import { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [companyName, setCompanyName] = useState('');
+
+  const handleLoginSuccess = (response) => {
+    console.log('Login Success: ', response);
+  };
+
+  const handleLoginFailure = (response) => {
+    console.log('Login Failed: ', response);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,6 +61,11 @@ function Login() {
         <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
         <a href="#" onClick={handleForgotPassword} className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
       </form>
+      <GoogleLogin
+        onSuccess={handleLoginSuccess}
+        onError={handleLoginFailure}
+        className="mt-4"
+      />
     </div>
   );
 }
