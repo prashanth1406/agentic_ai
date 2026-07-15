@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
+import PropTypes from 'prop-types'; // Add PropTypes import
 import ForgotPassword from './ForgotPassword';
 
-function Login() {
+function Login({ welcomeText }) { // Add welcomeText prop
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showForgotPassword, setShowForgotPassword] = useState(false);
@@ -34,7 +35,7 @@ function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
-        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Welcome Back</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">{welcomeText}</h1>
         <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
           <input
@@ -62,11 +63,18 @@ function Login() {
           onError={handleLoginFailure}
           className="mt-4"
         />
-        <p className="text-center mt-4 text-lg text-gray-700">Welcome to Our Service!</p>
-        <p className="text-center text-gray-600">Company ID: {process.env.REACT_APP_COMPANY_ID}</p>
+        <p className="text-center text-gray-600">Company ID: [Configured Securely]</p> {/* Temporarily replaced with a placeholder to avoid exposure */}
       </form>
     </div>
   );
 }
+
+Login.propTypes = {
+  welcomeText: PropTypes.string,
+};
+
+Login.defaultProps = {
+  welcomeText: 'Welcome to Our Service!', // Default welcome text
+};
 
 export default Login;
