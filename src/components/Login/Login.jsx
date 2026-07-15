@@ -13,6 +13,7 @@ function Login() {
 
   const handleLoginFailure = (response) => {
     console.log('Login Failed: ', response);
+    // Implement proper error handling here for user feedback
   };
 
   const handleSubmit = (event) => {
@@ -62,6 +63,8 @@ function Login() {
         onSuccess={handleLoginSuccess}
         onError={handleLoginFailure}
         className="mt-4"
+        aria-label="Sign in with Google"
+        role="button"
       />
     </div>
   );
