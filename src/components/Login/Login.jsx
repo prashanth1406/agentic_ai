@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { GoogleLogin } from '@react-oauth/google';
 import ForgotPassword from './ForgotPassword';
+import { GoogleLogin } from '@react-oauth/google';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -59,13 +59,14 @@ function Login() {
         <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
         <a href="#" onClick={handleForgotPassword} className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
       </form>
-      <GoogleLogin
-        onSuccess={handleLoginSuccess}
-        onError={handleLoginFailure}
-        className="mt-4"
-        aria-label="Sign in with Google"
-        role="button"
-      />
+      <div className='w-full flex justify-center'>
+        <GoogleLogin
+          onSuccess={handleLoginSuccess}
+          onError={handleLoginFailure}
+          aria-label="Sign in with Google"
+          role="button"
+        />
+      </div>
     </div>
   );
 }
