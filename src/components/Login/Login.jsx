@@ -63,7 +63,7 @@ function Login() {
           className="mt-4"
         />
         <p className="text-center mt-4 text-lg text-gray-700">Welcome to Our Service!</p>
-        <p className="text-center text-gray-600">Company ID: 12345</p>
+        <p className="text-center text-gray-600">Company ID: {process.env.REACT_APP_COMPANY_ID}</p>
       </form>
     </div>
   );
