@@ -57,11 +57,13 @@ function Login() {
         </div>
         <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Log In</button>
         <a href="#" onClick={handleForgotPassword} className="mt-2 text-sm text-blue-600 hover:underline">Forgot password?</a>
-          <GoogleLogin
-        onSuccess={handleLoginSuccess}
-        onError={handleLoginFailure}
-        className="mt-4"
-      />
+        <GoogleLogin
+          onSuccess={handleLoginSuccess}
+          onError={handleLoginFailure}
+          className="mt-4"
+        />
+        <p className="text-center mt-4 text-lg text-gray-700">Welcome to Our Service!</p>
+        <p className="text-center text-gray-600">Company ID: 12345</p>
       </form>
     </div>
   );
