@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import PropTypes from 'prop-types'; // Add PropTypes import
 import ForgotPassword from './ForgotPassword';
 
 function Login({ welcomeText }) { // Add welcomeText prop
@@ -63,18 +62,10 @@ function Login({ welcomeText }) { // Add welcomeText prop
           onError={handleLoginFailure}
           className="mt-4"
         />
-        <p className="text-center text-gray-600">Company ID: [Configured Securely]</p> {/* Temporarily replaced with a placeholder to avoid exposure */}
       </form>
     </div>
   );
 }
 
-Login.propTypes = {
-  welcomeText: PropTypes.string,
-};
-
-Login.defaultProps = {
-  welcomeText: 'Welcome to Our Service!', // Default welcome text
-};
 
 export default Login;
