@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
+import ForgotPassword from './ForgotPassword';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [companyName, setCompanyName] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
 
   const handleLoginSuccess = (response) => {
     console.log('Login Success: ', response);
@@ -19,10 +20,16 @@ function Login() {
   };
 
   const handleForgotPassword = () => {
-    // Logic to handle the password reset UI will go here
-    // For now, we will log the action
-    console.log('Forgot password clicked');
+    setShowForgotPassword(true);
   };
+
+  const handleBackToLogin = () => {
+    setShowForgotPassword(false);
+  };
+
+  if (showForgotPassword) {
+    return <ForgotPassword handleBack={handleBackToLogin} />;
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
@@ -56,7 +63,6 @@ function Login() {
         className="mt-4"
       />
       </form>
-  
     </div>
   );
 }
