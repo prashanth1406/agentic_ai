@@ -5,7 +5,7 @@ import ForgotPassword from '../components/Login/ForgotPassword';
 describe('ForgotPassword', () => {
   // Test to verify rendering of elements
   it('renders email input and buttons', () => {
-    const handleBack = jest.fn();
+    const handleBack = vi.fn();
     render(<ForgotPassword handleBack={handleBack} />);
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /cancel/i })).toBeInTheDocument();
@@ -14,7 +14,7 @@ describe('ForgotPassword', () => {
 
   // Test for email input change
   it('updates email input on change', () => {
-    const handleBack = jest.fn();
+    const handleBack = vi.fn();
     render(<ForgotPassword handleBack={handleBack} />);
     const emailInput = screen.getByLabelText(/email/i);
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
@@ -23,7 +23,7 @@ describe('ForgotPassword', () => {
 
   // Test for cancel button click
   it('calls handleBack when cancel button is clicked', () => {
-    const handleBack = jest.fn();
+    const handleBack = vi.fn();
     render(<ForgotPassword handleBack={handleBack} />);
     fireEvent.click(screen.getByRole('button', { name: /cancel/i }));
     expect(handleBack).toHaveBeenCalled();
@@ -31,7 +31,7 @@ describe('ForgotPassword', () => {
 
   // Test for sending email button behavior
   it('should handle sending email', () => {
-    const handleBack = jest.fn();
+    const handleBack = vi.fn();
     render(<ForgotPassword handleBack={handleBack} />);
     const emailInput = screen.getByLabelText(/email/i);
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
