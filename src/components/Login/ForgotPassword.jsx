@@ -5,14 +5,17 @@ function ForgotPassword({ handleBack }) {
   const [feedback, setFeedback] = useState("");
 
   const handleSendEmail = () => {
-    // Simulate sending an email and provide feedback
-    if (email) {
-      setFeedback("Email sent successfully! Check your inbox for the reset link.");
-      setTimeout(() => setFeedback(""), 5000); // Clear feedback after 5 seconds
-    } else {
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
       setFeedback("Please enter a valid email address.");
       setTimeout(() => setFeedback(""), 5000);
+      return;
     }
+
+    // Simulate sending an email and provide feedback
+    setFeedback("Email sent successfully! Check your inbox for the reset link.");
+    setTimeout(() => setFeedback(""), 5000); // Clear feedback after 5 seconds
   };
 
   return (
