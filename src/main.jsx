@@ -4,12 +4,14 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login.jsx";
 import Home from "./components/Home.jsx";
+import HealthCheck from "./components/HealthCheck.jsx";
 import "./index.css";
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
+    <Route path="/health" element={<HealthCheck />} />
   </Routes>
 );
 
